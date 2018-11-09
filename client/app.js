@@ -1,3 +1,4 @@
+// eslint-disable-line global-require
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
@@ -6,13 +7,13 @@ import App from './App.jsx'
 // ReactDOM.hydrate(<App />, document.getElementById('root'))
 
 const root = document.getElementById('root')
-const render = Component => {
+const render = (Component) => {
   const renderMethod = module.hot ? ReactDOM.render : ReactDOM.hydrate
   renderMethod(
     <AppContainer>
       <Component />
     </AppContainer>,
-    root
+    root,
   )
 }
 

@@ -4,11 +4,9 @@
 import React from 'react'
 
 export default class App extends React.Component {
-  render () {
+  render() {
     return (
       <div>This is a252 app12340</div>
     )
   }
-
-
 }
