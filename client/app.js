@@ -6,16 +6,20 @@ import { Provider } from 'mobx-react'
 import { AppContainer } from 'react-hot-loader'
 import App from './views/App'
 
-import appState from './store/appState'
+import AppState from './store/appState'
 
+// const appState = new AppState()
+// export default appState
 // ReactDOM.hydrate(<App />, document.getElementById('root'))
+
+const initialState = window.__INITIAL__STATE__ || {} // eslint-disable-line
 
 const root = document.getElementById('root')
 const render = (Component) => {
   const renderMethod = module.hot ? ReactDOM.render : ReactDOM.hydrate
   renderMethod(
     <AppContainer>
-      <Provider appState={appState}>
+      <Provider appState={new AppState(initialState.appState)}>
         <BrowserRouter>
           <Component />
         </BrowserRouter>
