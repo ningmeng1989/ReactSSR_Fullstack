@@ -2,7 +2,8 @@
  * Created by JianBo.Wang on 2018/11/9.
  */
 const path = require('path')
-const HTMLPlugin = require('html-webpack-plugin')
+// const HTMLPlugin = require('html-webpack-plugin')
+const webpack= require('webpack')
 const webpackMerge = require('webpack-merge')
 const baseConfig = require('./webpack.base')
 
@@ -18,5 +19,10 @@ module.exports = webpackMerge(baseConfig, {
     // path: path.join(__dirname, '../dist'),
     // publicPath: '/public',
     libraryTarget: 'commonjs2'
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.API_BASE': '"http://127.0.0.1:3000"'
+    })
+  ]
 })
